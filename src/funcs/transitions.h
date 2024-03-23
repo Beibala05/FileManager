@@ -1,9 +1,11 @@
 #pragma once
 
 #include "../app/ui.h"
+#include "../boxes/text_editor.h"
 #include "manager.h"
 
 struct Manager;
+struct TextEditor;
 
 struct Transitions : QObject
 {
@@ -15,6 +17,7 @@ struct Transitions : QObject
     Button *prev;
 
     ListWidget	       *m_fileManager;
+    TextEditor         *text_editor;
     String				m_path;
 	std::vector<String> m_pathes;
 

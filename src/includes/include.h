@@ -17,17 +17,23 @@
 #include <QObject>
 #include <QStandardPaths>
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 #include <QFileInfoList>
+#include <QLineEdit>
 
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 using App               = QApplication;
 using Window            = QMainWindow;
 using ListWidget        = QListWidget;
 using FileInfo          = QFileInfo;
 using Dir               = QDir;
+using LineEdit          = QLineEdit;
 using FileInfoList      = QFileInfoList;
+using File              = QFile;
 using ListWidgetItem    = QListWidgetItem;
 using Widget            = QWidget;
 using Button            = QPushButton;

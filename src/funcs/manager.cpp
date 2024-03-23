@@ -1,5 +1,7 @@
 #include "manager.h"
 
+String Manager::currentPath;
+
 Manager::Manager(Widget *centralWidget)
 {
     fileManager = new ListWidget(centralWidget);
@@ -21,19 +23,18 @@ Manager::~Manager()
 void Manager::print(String &path, ListWidget *fileManager, std::vector<String> &pathes)
 {
     FileInfo fileInfo(path);
+	Manager::currentPath = path;
 
 	if (fileInfo.isFile())
-	{
-        qDebug() << "Error: this item not a folder";
-
+	{	
 		if (pathes.size() != 1)
-		{
 			pathes.pop_back();
-		}
 
 		path = (String)pathes.at(pathes.size() - 1);
 
-		return;
+		Manager::currentPath = path;
+
+		throw -1;
 	}
 
     fileManager->clear();
@@ -46,12 +47,8 @@ void Manager::print(String &path, ListWidget *fileManager, std::vector<String> &
 		String file_name = file.fileName();
 
 		if (file.isDir())
-		{
 			fileManager->addItem(new ListWidgetItem(QIcon("FOLDER_ICON_PATH"), file_name));
-		}
 		else if (file.isFile())
-		{
 			fileManager->addItem(new ListWidgetItem(QIcon("FILE_ICON_PATH"), file_name));
-		}
 	}
 }

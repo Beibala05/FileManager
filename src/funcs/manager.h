@@ -7,8 +7,9 @@ struct Manager
     explicit Manager(Widget *centralWidget);
     ~Manager();
 
-    ListWidget	                    *fileManager;
+    ListWidget	                   *fileManager;
     String				            path = "/mnt/c";
+    static String				    currentPath;
 	std::vector<String>             pathes;
 
     static void print(String &path, ListWidget *fileManager, std::vector<String> &pathes);

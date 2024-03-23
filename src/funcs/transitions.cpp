@@ -11,6 +11,8 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
 	prev = new Button(centralWidget);
 	prev->setGeometry(5, 5, 40, 40);
 
+	text_editor = new TextEditor();
+
     QObject::connect(next, &Button::clicked, this, &Transitions::nextElementSlot);
 	QObject::connect(prev, &Button::clicked, this, &Transitions::prevElementSlot);
 	QObject::connect(m_fileManager, &ListWidget::itemDoubleClicked, this, &Transitions::nextElementSlot);
@@ -20,6 +22,7 @@ Transitions::~Transitions()
 {
     delete next;
     delete prev;
+	delete text_editor;
 }
 
 void Transitions::nextElementSlot()
@@ -37,7 +40,16 @@ void Transitions::nextElementSlot()
 
 	m_pathes.push_back(m_path);
 
-	Manager::print(m_path, m_fileManager, m_pathes);
+	String throw_path = m_path;
+
+	try {
+		Manager::print(m_path, m_fileManager, m_pathes);
+	}
+	catch (...) {
+		// text_editor = new TextEditor(throw_path);
+		text_editor->show(throw_path);
+	}
+
 }
 
 void Transitions::prevElementSlot()
