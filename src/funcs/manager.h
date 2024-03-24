@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../app/ui.h"
+#include "../funcs/remove.h"
+
+struct Remove;
 
 struct Manager
 {
@@ -13,4 +16,5 @@ struct Manager
 	std::vector<String>             pathes;
 
     static void print(String &path, ListWidget *fileManager, std::vector<String> &pathes);
+    static void removeAllFromFileManager(ListWidget *fileManager);
 };

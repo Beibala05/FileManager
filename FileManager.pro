@@ -9,6 +9,7 @@ SOURCES += \
     src/funcs/manager.cpp \
     src/boxes/text_editor.cpp \
     src/boxes/create_dialog.cpp \
+    src/funcs/remove.cpp \
 
 HEADERS += \
     src/app/ui.h \
@@ -17,3 +18,5 @@ HEADERS += \
     src/funcs/manager.h \
     src/boxes/text_editor.h \
     src/boxes/create_dialog.h \
+    src/funcs/remove.h \
+    icons/icons_pack.h \

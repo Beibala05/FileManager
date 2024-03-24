@@ -5,11 +5,13 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
     , m_path(path)
     , m_pathes(pathes)
 {
-    next = new Button(centralWidget);
+    next = new Button("r", centralWidget);
 	next->setGeometry(50, 5, 40, 40);
+	next->setFont(QFont("Arial", 14));
 
-	prev = new Button(centralWidget);
+	prev = new Button("l", centralWidget);
 	prev->setGeometry(5, 5, 40, 40);
+	prev->setFont(QFont("Arial", 14));
 
 	text_editor = new TextEditor();
 
@@ -20,8 +22,6 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
 
 Transitions::~Transitions()
 {
-    delete next;
-    delete prev;
 	delete text_editor;
 }
 
@@ -42,11 +42,12 @@ void Transitions::nextElementSlot()
 
 	String throw_path = m_path;
 
-	try {
+	try 
+	{
 		Manager::print(m_path, m_fileManager, m_pathes);
 	}
-	catch (...) {
-		// text_editor = new TextEditor(throw_path);
+	catch (...) 
+	{
 		text_editor->show(throw_path);
 	}
 

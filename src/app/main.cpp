@@ -1,4 +1,5 @@
 #include "../includes/include.h"
+#include "../../icons/icons_pack.h"
 #include "ui.h"
 
 int main(int argc, char **argv)

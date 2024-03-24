@@ -9,6 +9,7 @@ UserInterface::UserInterface(Widget *parent) : Window(parent)
     manager = new Manager(centralWidget);
     transitions = new Transitions(centralWidget, manager->fileManager, manager->path, manager->pathes);
     add = new Create(centralWidget, manager->fileManager);
+    remover = new Remove(centralWidget, manager->fileManager);
 }
 
 UserInterface::~UserInterface()
@@ -16,6 +17,7 @@ UserInterface::~UserInterface()
     delete manager;
     delete transitions;
     delete add;
+    delete remover;
 }
 
 void UserInterface::resizeEvent(QResizeEvent* event)

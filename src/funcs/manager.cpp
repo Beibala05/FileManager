@@ -15,9 +15,7 @@ Manager::Manager(Widget *centralWidget)
 
 Manager::~Manager()
 {
-    fileManager->clear();
-
-    delete fileManager;
+	Manager::removeAllFromFileManager(fileManager);
 }
 
 void Manager::print(String &path, ListWidget *fileManager, std::vector<String> &pathes)
@@ -37,7 +35,7 @@ void Manager::print(String &path, ListWidget *fileManager, std::vector<String> &
 		throw -1;
 	}
 
-    fileManager->clear();
+	Manager::removeAllFromFileManager(fileManager);
 
 	Dir directory(path);
 	FileInfoList files = directory.entryInfoList(Dir::Files | Dir::Dirs | Dir::NoDotAndDotDot, Dir::Name);
@@ -51,4 +49,12 @@ void Manager::print(String &path, ListWidget *fileManager, std::vector<String> &
 		else if (file.isFile())
 			fileManager->addItem(new ListWidgetItem(QIcon("FILE_ICON_PATH"), file_name));
 	}
+}
+
+void Manager::removeAllFromFileManager(ListWidget *fileManager)
+{
+	for (int i = 0; i < fileManager->count(); ++i) 
+		delete fileManager->takeItem(i);
+
+	fileManager->clear();
 }
