@@ -1,9 +1,10 @@
 #include "transitions.h"
 
 Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String &path
-    , std::vector<String> &pathes) : m_fileManager(fileManager)
+    , Text *removeText, std::vector<String> &pathes) : m_fileManager(fileManager)
     , m_path(path)
     , m_pathes(pathes)
+	, m_removeText(removeText)
 {
     next = new Button("r", centralWidget);
 	next->setGeometry(50, 5, 40, 40);
@@ -48,9 +49,10 @@ void Transitions::nextElementSlot()
 	}
 	catch (...) 
 	{
-		text_editor->show(throw_path);
+		text_editor->open(throw_path);
 	}
 
+	m_removeText->clear();
 }
 
 void Transitions::prevElementSlot()
@@ -63,4 +65,6 @@ void Transitions::prevElementSlot()
 	m_path = m_pathes.at(m_pathes.size() - 1);
 
 	Manager::print(m_path, m_fileManager, m_pathes);
+
+	m_removeText->clear();
 }

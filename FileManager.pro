@@ -8,8 +8,12 @@ SOURCES += \
     src/funcs/transitions.cpp \
     src/funcs/manager.cpp \
     src/boxes/text_editor.cpp \
-    src/boxes/create_dialog.cpp \
+    src/boxes/add_item.cpp \
+    src/boxes/message.cpp \
     src/funcs/remove.cpp \
+    src/funcs/copy.cpp \
+    src/funcs/paste.cpp \
+    src/funcs/buffer.cpp \
 
 HEADERS += \
     src/app/ui.h \
@@ -17,6 +21,10 @@ HEADERS += \
     src/funcs/transitions.h \
     src/funcs/manager.h \
     src/boxes/text_editor.h \
-    src/boxes/create_dialog.h \
+    src/boxes/add_item.h \
+    src/boxes/message.h \
     src/funcs/remove.h \
+    src/funcs/copy.h \
+    src/funcs/paste.h \
+    src/funcs/buffer.h \
     icons/icons_pack.h \

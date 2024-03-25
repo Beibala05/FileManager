@@ -3,13 +3,21 @@
 #include "../includes/include.h"
 #include "../funcs/manager.h"
 #include "../funcs/transitions.h"
-#include "../boxes/create_dialog.h"
+#include "../boxes/add_item.h"
 #include "../funcs/remove.h"
+#include "../funcs/copy.h"
+#include "../funcs/paste.h"
+#include "../funcs/buffer.h"
+#include "../boxes/message.h"
 
 struct Manager;
 struct Transitions;
 struct Create;
 struct Remove;
+struct Copy;
+struct Paste;
+struct Buffer;
+struct Message;
 
 struct UserInterface : Window
 {
@@ -21,7 +29,11 @@ struct UserInterface : Window
 	Transitions *transitions;
 	Create		*add;
 	Remove		*remover;
+	Copy		*copy;
+	Paste		*paste;
+	Buffer		*buffer;
+	Message		*msgs;
 
 protected:
-	void resizeEvent(QResizeEvent* event) override;
+	void resizeEvent(ResizeEvent* event) override;
 };	

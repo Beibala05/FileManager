@@ -21,10 +21,21 @@
 #include <QTextStream>
 #include <QFileInfoList>
 #include <QLineEdit>
+#include <QClipboard>
+#include <QResizeEvent>
+#include <QIcon>
+#include <QPixmap>
 
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+
+#define UI_MINIMUM_WIDTH            1400
+#define UI_MINIMUM_HEIGHT           800
+#define TEXT_EDITOR_START_WIDTH     1200
+#define TEXT_EDITOR_START_HEIGHT    800
+#define MESSAGE_START_WIDTH         400
+#define MESSAGE_START_HEIGHT        150
 
 using App               = QApplication;
 using Window            = QMainWindow;
@@ -41,3 +52,6 @@ using Text              = QLabel;
 using TextEdit          = QTextEdit;
 using TextBrowser       = QTextBrowser;
 using String            = QString;
+using ResizeEvent       = QResizeEvent;
+using Icon              = QIcon;
+using Pixmap            = QPixmap;

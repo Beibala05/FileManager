@@ -2,23 +2,24 @@
 
 #include "../includes/include.h"
 
-struct TextEditor : QObject
+struct TextEditor : Widget
 {
     TextEditor();
-    ~TextEditor();
 
-    Widget   *window;
     TextEdit *editor;
     Button   *save;
-    Button   *increasSize; // +
-    Button   *reduceSize;  // -
+    Button   *reduceSize;
+    Button   *increasSize;
     String    text;
     String    path;
     int       textSize = 14;
 
     void print();
-    void show(const String &path);
+    void open(const String &path);
     void saveSlot();
-    void increasSizeSlot();
     void reduceSizeSlot();
+    void increasSizeSlot();
+
+protected:
+	void resizeEvent(ResizeEvent* event) override;
 };

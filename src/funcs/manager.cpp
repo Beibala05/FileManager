@@ -1,6 +1,6 @@
 #include "manager.h"
 
-String Manager::currentPath;
+String	Manager::currentPath;
 
 Manager::Manager(Widget *centralWidget)
 {
@@ -57,4 +57,20 @@ void Manager::removeAllFromFileManager(ListWidget *fileManager)
 		delete fileManager->takeItem(i);
 
 	fileManager->clear();
+}
+
+bool Manager::isItemExist(const String &path, const String &title)
+{
+	Dir directory(path);
+	FileInfoList items = directory.entryInfoList(Dir::Files | Dir::Dirs | Dir::NoDotAndDotDot, Dir::Name);
+
+	for (const auto &item : items)
+	{
+		String item_name = item.fileName();
+
+		if (item_name == title)
+			return true;
+	}
+
+	return false;
 }

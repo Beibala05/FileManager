@@ -1,9 +1,9 @@
-#include "create_dialog.h"
+#include "add_item.h"
 
 Create::Create(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     add = new Button("+", centralWidget);
-    add->setGeometry(95, 5, 40, 40);
+    add->setGeometry(185, 5, 40, 40);
     add->setFont(QFont("Arial", 14));
 
     window = new Window();

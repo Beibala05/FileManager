@@ -2,34 +2,29 @@
 
 TextEditor::TextEditor()
 {
-    window = new Window();
-    window->setFixedSize(1200, 800);
-    window->setWindowModality(Qt::ApplicationModal);
+    this->setMinimumSize(1200, 800);
+    this->setWindowModality(Qt::ApplicationModal);
+    this->setWindowTitle("Text Editor");
 
-    editor = new TextEdit(window);
-    editor->setGeometry(0, 0, 1200, 800);
+    editor = new TextEdit(this);
+    editor->setGeometry(0, 0, TEXT_EDITOR_START_WIDTH, TEXT_EDITOR_START_HEIGHT);
     editor->setFont(QFont("Arial", 14));
 
-    save = new Button("save", window);
-    save->setGeometry(1090, 740, 100, 50);
+    save = new Button("save", this);
+    save->setGeometry(1075, 740, 100, 50);
     save->setFont(QFont("Arial", 14));
 
-    increasSize = new Button("+", window);
-    increasSize->setGeometry(970, 740, 50, 50);
-    increasSize->setFont(QFont("Arial", 14));
-
-    reduceSize = new Button("-", window);
-    reduceSize->setGeometry(1030, 740, 50, 50);
+    reduceSize = new Button("-", this);
+    reduceSize->setGeometry(1015, 740, 50, 50);
     reduceSize->setFont(QFont("Arial", 14));
+
+    increasSize = new Button("+", this);
+    increasSize->setGeometry(955, 740, 50, 50);
+    increasSize->setFont(QFont("Arial", 14));
 
     QObject::connect(save, &Button::clicked, this, &TextEditor::saveSlot);
     QObject::connect(increasSize, &Button::clicked, this, &TextEditor::increasSizeSlot);
     QObject::connect(reduceSize, &Button::clicked, this, &TextEditor::reduceSizeSlot);
-}
-
-TextEditor::~TextEditor()
-{
-    delete window;
 }
 
 void TextEditor::print()
@@ -37,7 +32,7 @@ void TextEditor::print()
     editor->setText(text);
 }
 
-void TextEditor::show(const String &path)
+void TextEditor::open(const String &path)
 {
     File file(path);
     if (file.open(QIODevice::ReadOnly))
@@ -45,7 +40,7 @@ void TextEditor::show(const String &path)
         text = file.readAll();
         file.close();
         this->path = path;
-        window->show();
+        this->show();
         print();
     }
     else
@@ -71,9 +66,9 @@ void TextEditor::saveSlot()
 
 void TextEditor::increasSizeSlot() 
 {
-    if (textSize < 20) 
+    if (textSize < 30) 
     {
-        ++textSize;
+        textSize += 2;
         editor->setFont(QFont("Arial", textSize));
     }
 }
@@ -82,7 +77,17 @@ void TextEditor::reduceSizeSlot()
 {
     if (textSize > 10)  
     {
-        --textSize;
+        textSize -= 2;
         editor->setFont(QFont("Arial", textSize));
     }
+}
+
+void TextEditor::resizeEvent(ResizeEvent* event)
+{
+    editor->setGeometry(0, 0, width(), height());
+    save->setGeometry(width() - 125, height() - 60, 100, 50);
+    reduceSize->setGeometry(width() - 185, height() - 60, 50, 50);
+    increasSize->setGeometry(width() - 245, height() - 60, 50, 50);
+    
+	Widget::resizeEvent(event);
 }

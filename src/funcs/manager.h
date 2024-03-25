@@ -12,9 +12,10 @@ struct Manager
 
     ListWidget	                   *fileManager;
     String				            path = "/mnt/c";
+    std::vector<String>             pathes;
     static String				    currentPath;
-	std::vector<String>             pathes;
 
     static void print(String &path, ListWidget *fileManager, std::vector<String> &pathes);
     static void removeAllFromFileManager(ListWidget *fileManager);
+    static bool isItemExist(const String &path, const String &title);
 };

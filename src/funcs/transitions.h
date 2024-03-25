@@ -9,14 +9,15 @@ struct TextEditor;
 
 struct Transitions : QObject
 {
-    explicit Transitions(Widget *centralWidget, ListWidget *fileManager, String &path, 
-    std::vector<String> &pathes);
+    Transitions(Widget *centralWidget, ListWidget *fileManager, String &path
+    , Text *removeText, std::vector<String> &pathes);
     ~Transitions();
 
     Button *next;
     Button *prev;
 
     ListWidget	       *m_fileManager;
+    Text               *m_removeText;
     TextEditor         *text_editor;
     String				m_path;
 	std::vector<String> m_pathes;

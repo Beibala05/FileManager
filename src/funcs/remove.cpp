@@ -2,13 +2,13 @@
 
 Remove::Remove(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
 {
-    removeTitle = new Text("file/folder", centralWidget);
-    removeTitle->setGeometry(140, 5, 200, 40);
+    removeTitle = new Text(centralWidget);
+    removeTitle->setGeometry(230, 5, 200, 40);
     removeTitle->setFont(QFont("Arial", 14));
     removeTitle->setAlignment(Qt::AlignCenter);
 
-    remove = new Button("X", centralWidget);
-    remove->setGeometry(325, 5, 40, 40);
+    remove = new Button("x", centralWidget);
+    remove->setGeometry(435, 5, 40, 40);
     remove->setFont(QFont("Arial", 14));
 
     QObject::connect(remove, &Button::clicked, this, &Remove::removeItemSlot);
