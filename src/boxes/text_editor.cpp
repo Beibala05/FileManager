@@ -1,4 +1,5 @@
 #include "text_editor.h"
+#include "message.h"
 
 TextEditor::TextEditor()
 {
@@ -10,17 +11,23 @@ TextEditor::TextEditor()
     editor->setGeometry(0, 0, TEXT_EDITOR_START_WIDTH, TEXT_EDITOR_START_HEIGHT);
     editor->setFont(QFont("Arial", 14));
 
-    save = new Button("save", this);
-    save->setGeometry(1075, 740, 100, 50);
-    save->setFont(QFont("Arial", 14));
+    save = new Button(this);
+    save->setGeometry(1125, 740, 100 - 50, 50);
+    save->setFont(Font("Arial", 14));
+    save->setIcon(Icon("../res/text_editor_icons/save_file.png"));
+    save->setIconSize(Size(50, 50));
 
-    reduceSize = new Button("-", this);
-    reduceSize->setGeometry(1015, 740, 50, 50);
-    reduceSize->setFont(QFont("Arial", 14));
+    reduceSize = new Button(this);
+    reduceSize->setGeometry(1065, 740, 50, 50);
+    reduceSize->setFont(Font("Arial", 14));
+    reduceSize->setIcon(Icon("../res/text_editor_icons/minus.png"));
+    reduceSize->setIconSize(Size(50, 50));
 
-    increasSize = new Button("+", this);
-    increasSize->setGeometry(955, 740, 50, 50);
-    increasSize->setFont(QFont("Arial", 14));
+    increasSize = new Button(this);
+    increasSize->setGeometry(1005, 740, 50, 50);
+    increasSize->setFont(Font("Arial", 14));
+    increasSize->setIcon(Icon("../res/text_editor_icons/plus.png"));
+    increasSize->setIconSize(Size(50, 50));
 
     QObject::connect(save, &Button::clicked, this, &TextEditor::saveSlot);
     QObject::connect(increasSize, &Button::clicked, this, &TextEditor::increasSizeSlot);
@@ -44,9 +51,7 @@ void TextEditor::open(const String &path)
         print();
     }
     else
-    {
-        qDebug() << "Error: open file for read only";
-    }
+        Message::error("Failed to open file");
 }
 
 void TextEditor::saveSlot()
@@ -57,11 +62,10 @@ void TextEditor::saveSlot()
     {
         file.write(editor->toPlainText().toUtf8());
         file.close();
+        Message::information("File is saved");
     }
     else
-    {
-        qDebug() << "Error: open file for write only";
-    }
+        Message::error("Failed to save file");
 }
 
 void TextEditor::increasSizeSlot() 
@@ -69,7 +73,7 @@ void TextEditor::increasSizeSlot()
     if (textSize < 30) 
     {
         textSize += 2;
-        editor->setFont(QFont("Arial", textSize));
+        editor->setFont(Font("Arial", textSize));
     }
 }
 
@@ -78,16 +82,16 @@ void TextEditor::reduceSizeSlot()
     if (textSize > 10)  
     {
         textSize -= 2;
-        editor->setFont(QFont("Arial", textSize));
+        editor->setFont(Font("Arial", textSize));
     }
 }
 
 void TextEditor::resizeEvent(ResizeEvent* event)
 {
     editor->setGeometry(0, 0, width(), height());
-    save->setGeometry(width() - 125, height() - 60, 100, 50);
-    reduceSize->setGeometry(width() - 185, height() - 60, 50, 50);
-    increasSize->setGeometry(width() - 245, height() - 60, 50, 50);
+    save->setGeometry(width() - 75, height() - 60, 100 - 50, 50);
+    reduceSize->setGeometry(width() - 185 + 50, height() - 60, 50, 50);
+    increasSize->setGeometry(width() - 245 + 50, height() - 60, 50, 50);
     
 	Widget::resizeEvent(event);
 }

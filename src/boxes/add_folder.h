@@ -5,20 +5,20 @@
 
 struct Manager;
 
-struct Create : QObject
+struct AddFolder : QObject
 {
-    Create(Widget *centralWidget, ListWidget *fileManager);
-    ~Create();
+    AddFolder(Widget *centralWidget, ListWidget *fileManager);
+    ~AddFolder();
 
     Widget      *window;
     LineEdit    *title;
-    Button      *create;
+    Button      *createFolder;
     Button      *cancel;
-    Button      *add;
+    Button      *addFolder;
     ListWidget  *m_fileManager;
     String       m_path;
 
-    void addShowSlot();
-    void createSlot();
+    void addShowFolderSlot();
+    void createFolderSlot();
     void cancelSlot();
 };

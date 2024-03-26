@@ -3,7 +3,8 @@
 #include "../includes/include.h"
 #include "../funcs/manager.h"
 #include "../funcs/transitions.h"
-#include "../boxes/add_item.h"
+#include "../boxes/add_file.h"
+#include "../boxes/add_folder.h"
 #include "../funcs/remove.h"
 #include "../funcs/copy.h"
 #include "../funcs/paste.h"
@@ -12,7 +13,8 @@
 
 struct Manager;
 struct Transitions;
-struct Create;
+struct AddFile;
+struct AddFolder;
 struct Remove;
 struct Copy;
 struct Paste;
@@ -27,7 +29,8 @@ struct UserInterface : Window
 	Widget		*centralWidget;
 	Manager 	*manager;
 	Transitions *transitions;
-	Create		*add;
+	AddFile		*addFile;
+	AddFolder	*addFolder;
 	Remove		*remover;
 	Copy		*copy;
 	Paste		*paste;

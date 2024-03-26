@@ -2,9 +2,11 @@
 
 Copy::Copy(Widget *centralWidget, Text *copyText) : m_copyText(copyText)
 {
-    copy = new Button("c", centralWidget);
+    copy = new Button(centralWidget);
     copy->setGeometry(95, 5, 40, 40);
-    copy->setFont(QFont("Arial", 14));
+    copy->setFont(Font("Arial", 14));
+    copy->setIcon(Icon("../res/tool_bar_icons/copy.png"));
+    copy->setIconSize(Size(40, 40));
 
     QObject::connect(copy, &Button::clicked, this, &Copy::clickSlot);
 }

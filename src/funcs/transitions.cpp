@@ -6,13 +6,17 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
     , m_pathes(pathes)
 	, m_removeText(removeText)
 {
-    next = new Button("r", centralWidget);
+    next = new Button(centralWidget);
 	next->setGeometry(50, 5, 40, 40);
-	next->setFont(QFont("Arial", 14));
+	next->setFont(Font("Arial", 14));
+	next->setIcon(Icon("../res/tool_bar_icons/next_dir.png"));
+    next->setIconSize(Size(40, 40));
 
-	prev = new Button("l", centralWidget);
+	prev = new Button(centralWidget);
 	prev->setGeometry(5, 5, 40, 40);
-	prev->setFont(QFont("Arial", 14));
+	prev->setFont(Font("Arial", 14));
+	prev->setIcon(Icon("../res/tool_bar_icons/prev_dir.png"));
+    prev->setIconSize(Size(40, 40));
 
 	text_editor = new TextEditor();
 
@@ -30,7 +34,7 @@ void Transitions::nextElementSlot()
 {
 	if (!m_fileManager->currentItem())
 	{
-        qDebug() << "Error: path not found";
+		Message::error("Path not found");
 
 		return;
 	}

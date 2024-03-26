@@ -3,13 +3,15 @@
 Remove::Remove(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     removeTitle = new Text(centralWidget);
-    removeTitle->setGeometry(230, 5, 200, 40);
-    removeTitle->setFont(QFont("Arial", 14));
+    removeTitle->setGeometry(230 + 50, 5, 200, 40);
+    removeTitle->setFont(Font("Arial", 14));
     removeTitle->setAlignment(Qt::AlignCenter);
 
-    remove = new Button("x", centralWidget);
-    remove->setGeometry(435, 5, 40, 40);
-    remove->setFont(QFont("Arial", 14));
+    remove = new Button(centralWidget);
+    remove->setGeometry(435 + 50, 5, 40, 40);
+    remove->setFont(Font("Arial", 14));
+    remove->setIcon(Icon("../res/tool_bar_icons/remove_folder.png"));
+    remove->setIconSize(Size(40, 40));
 
     QObject::connect(remove, &Button::clicked, this, &Remove::removeItemSlot);
     QObject::connect(m_fileManager, &ListWidget::itemClicked, this, &Remove::crossTextFromFileManagerSlot);
@@ -24,6 +26,13 @@ void Remove::crossTextFromFileManagerSlot()
 		String selectedItemText = selectedItem->text();
 		
 		removeTitle->setText(selectedItemText);
+
+        FileInfo fileInfo(Manager::currentPath + (String)"/" + selectedItemText);
+
+        if (fileInfo.isFile())
+            remove->setIcon(Icon("../res/tool_bar_icons/remove_file.png"));
+        else
+            remove->setIcon(Icon("../res/tool_bar_icons/remove_folder.png"));
 	}
 }
 
@@ -35,7 +44,7 @@ void Remove::removeItemSlot()
     }
     catch(...) 
     {
-        qDebug() << "Error: Failed to delete folder or file";
+        Message::error("Failed to remove folder or file");
     }
     
 }
@@ -46,7 +55,7 @@ void Remove::removeItem()
 
     if (removeTitleText.isEmpty())
     {
-        qDebug() << "Error: empty remove title";
+        Message::error("Empty title to remove");
 
         return;
     }
@@ -81,6 +90,6 @@ void Remove::removeItem()
         }
 
         removeTitle->clear();
-        qDebug() << "Item was success removed";
+        Message::information("Item was success removed");
     }
 }

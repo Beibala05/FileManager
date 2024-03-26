@@ -9,7 +9,8 @@ UserInterface::UserInterface(Widget *parent) : Window(parent)
     this->setWindowTitle("File Manager");
 
     manager = new Manager(centralWidget);
-    add = new Create(centralWidget, manager->fileManager);
+    addFile = new AddFile(centralWidget, manager->fileManager);
+    addFolder = new AddFolder(centralWidget, manager->fileManager);
     remover = new Remove(centralWidget, manager->fileManager);
     copy = new Copy(centralWidget, remover->removeTitle);
     paste = new Paste(centralWidget, manager->fileManager);
@@ -23,7 +24,8 @@ UserInterface::~UserInterface()
 {
     delete manager;
     delete transitions;
-    delete add;
+    delete addFile;
+    delete addFolder;
     delete remover;
     delete copy;
     delete paste;

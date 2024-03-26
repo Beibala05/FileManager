@@ -2,9 +2,11 @@
 
 Paste::Paste(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
 {
-    paste = new Button("p", centralWidget);
+    paste = new Button(centralWidget);
     paste->setGeometry(140, 5, 40, 40);
-    paste->setFont(QFont("Arial", 14));
+    paste->setFont(Font("Arial", 14));
+    paste->setIcon(Icon("../res/tool_bar_icons/copy_to_folder.png"));
+    paste->setIconSize(Size(40, 40));
 
     QObject::connect(paste, &Button::clicked, this, &Paste::clickSlot);
 }
@@ -17,9 +19,7 @@ void Paste::clickSlot()
     {
         if (Manager::isItemExist(Manager::currentPath, Buffer::cpTitle))
         {
-            qDebug() << "error: such a file/folder already exist";
-
-            Message::information("error: such a file/folder already exist");
+            Message::information("Such a file or folder already exist");
 
             return;
         }
@@ -41,15 +41,11 @@ void Paste::clickSlot()
             isSuccess = std::system(command.toStdString().c_str());
         }
 
-        if (isSuccess != 0)
-            qDebug() << "Error: copy past is failed";
-        else
+        if (isSuccess == 0)
         {
-            qDebug() << "copy past is successed";
-
-            m_fileManager->addItem(new ListWidgetItem(QIcon("UNKNOW_ICON_PATH"), Buffer::cpTitle));
+            m_fileManager->addItem(new ListWidgetItem(Icon("../res/files_and_folders_icons/new_item.png"), Buffer::cpTitle));
         }
     }
     else
-        qDebug() << "Error: empty buffer";
+        Message::error("Empty buffer");
 }

@@ -7,7 +7,7 @@ bool     Buffer::isCurrentBufferTextFolder = true;
 Buffer::Buffer(Widget *centralWidget)
 {
     buffer = new Text(centralWidget);
-    buffer->setGeometry(480, 5, 400, 40);
+    buffer->setGeometry(480 + 50, 5, 400, 40);
     buffer->setFont(QFont("Arial", 14));
     buffer->setAlignment(Qt::AlignCenter);
 

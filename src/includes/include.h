@@ -25,6 +25,8 @@
 #include <QResizeEvent>
 #include <QIcon>
 #include <QPixmap>
+#include <QSize>
+#include <QFont>
 
 #include <iostream>
 #include <vector>
@@ -34,7 +36,7 @@
 #define UI_MINIMUM_HEIGHT           800
 #define TEXT_EDITOR_START_WIDTH     1200
 #define TEXT_EDITOR_START_HEIGHT    800
-#define MESSAGE_START_WIDTH         400
+#define MESSAGE_START_WIDTH         410
 #define MESSAGE_START_HEIGHT        150
 
 using App               = QApplication;
@@ -55,3 +57,7 @@ using String            = QString;
 using ResizeEvent       = QResizeEvent;
 using Icon              = QIcon;
 using Pixmap            = QPixmap;
+using Font              = QFont;
+using Size              = QSize;
+
+#include "../../icons/icons_pack.h"

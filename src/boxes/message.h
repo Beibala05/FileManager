@@ -13,8 +13,9 @@ struct Message : QObject
     static Text   *text;
 
     static void information(const String &__message);
-    static void warning(const   String &__message);
+    static void warning(const String &__message);
     static void error(const String &__message);
+    void        close();
 
-    void close();
+    private: static String parse(const String &__message);
 };
