@@ -6,10 +6,16 @@ bool     Buffer::isCurrentBufferTextFolder = true;
 
 Buffer::Buffer(Widget *centralWidget)
 {
+    File bufferStyle("../styles/text_label.css");
+	bufferStyle.open(QIODevice::ReadOnly);
+	String styleBuffer = bufferStyle.readAll();
+	bufferStyle.close();
+
     buffer = new Text(centralWidget);
-    buffer->setGeometry(480 + 50, 5, 400, 40);
+    buffer->setGeometry(770, 5, UI_MINIMUM_WIDTH - 775, 40);
     buffer->setFont(QFont("Arial", 14));
     buffer->setAlignment(Qt::AlignCenter);
+    buffer->setStyleSheet(styleBuffer);
 
     String bufferText = Buffer::fromBuffer();
 

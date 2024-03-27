@@ -6,28 +6,28 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
     , m_pathes(pathes)
 	, m_removeText(removeText)
 {
+	File buttonStyle("../styles/button.css");
+	buttonStyle.open(QIODevice::ReadOnly);
+	String style = buttonStyle.readAll();
+	buttonStyle.close();
+
     next = new Button(centralWidget);
 	next->setGeometry(50, 5, 40, 40);
 	next->setFont(Font("Arial", 14));
 	next->setIcon(Icon("../res/tool_bar_icons/next_dir.png"));
     next->setIconSize(Size(40, 40));
+	next->setStyleSheet(style);
 
 	prev = new Button(centralWidget);
 	prev->setGeometry(5, 5, 40, 40);
 	prev->setFont(Font("Arial", 14));
 	prev->setIcon(Icon("../res/tool_bar_icons/prev_dir.png"));
     prev->setIconSize(Size(40, 40));
-
-	text_editor = new TextEditor();
+	prev->setStyleSheet(style);
 
     QObject::connect(next, &Button::clicked, this, &Transitions::nextElementSlot);
 	QObject::connect(prev, &Button::clicked, this, &Transitions::prevElementSlot);
 	QObject::connect(m_fileManager, &ListWidget::itemDoubleClicked, this, &Transitions::nextElementSlot);
-}
-
-Transitions::~Transitions()
-{
-	delete text_editor;
 }
 
 void Transitions::nextElementSlot()
@@ -47,13 +47,17 @@ void Transitions::nextElementSlot()
 
 	String throw_path = m_path;
 
-	try 
+	try
 	{
 		Manager::print(m_path, m_fileManager, m_pathes);
 	}
 	catch (...) 
 	{
-		text_editor->open(throw_path);
+		String command = (String)"." + throw_path;
+		int isSuccess = std::system(command.toStdString().c_str());
+
+		if (isSuccess != 0)
+			Message::warning("No program was found on your computer to run this file");
 	}
 
 	m_removeText->clear();

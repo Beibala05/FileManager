@@ -5,6 +5,7 @@
 #include "../funcs/transitions.h"
 #include "../boxes/add_file.h"
 #include "../boxes/add_folder.h"
+#include "../boxes/search.h"
 #include "../funcs/remove.h"
 #include "../funcs/copy.h"
 #include "../funcs/paste.h"
@@ -15,6 +16,7 @@ struct Manager;
 struct Transitions;
 struct AddFile;
 struct AddFolder;
+struct Search;
 struct Remove;
 struct Copy;
 struct Paste;
@@ -31,6 +33,7 @@ struct UserInterface : Window
 	Transitions *transitions;
 	AddFile		*addFile;
 	AddFolder	*addFolder;
+	Search		*search;
 	Remove		*remover;
 	Copy		*copy;
 	Paste		*paste;

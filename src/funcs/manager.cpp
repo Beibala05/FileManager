@@ -4,9 +4,15 @@ String	Manager::currentPath;
 
 Manager::Manager(Widget *centralWidget)
 {
+	File buttonStyle("../styles/manager.css");
+	buttonStyle.open(QIODevice::ReadOnly);
+	String style = buttonStyle.readAll();
+	buttonStyle.close();
+
     fileManager = new ListWidget(centralWidget);
 	fileManager->setGeometry(0, 50, 1200, 750);
 	fileManager->setFont(Font("Arial", 16));
+	fileManager->setStyleSheet(style);
 
     Manager::print(path, this->fileManager, this->pathes);
 

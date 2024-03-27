@@ -2,30 +2,60 @@
 
 AddFile::AddFile(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
 {
+    File buttonStyle("../styles/button.css");
+	buttonStyle.open(QIODevice::ReadOnly);
+	String styleButton = buttonStyle.readAll();
+	buttonStyle.close();
+
+    File buttonOkStyle("../styles/button_ok.css");
+	buttonOkStyle.open(QIODevice::ReadOnly);
+	String styleButtonOk = buttonOkStyle.readAll();
+	buttonOkStyle.close();
+
+    File buttonCancelStyle("../styles/button_cancel.css");
+	buttonCancelStyle.open(QIODevice::ReadOnly);
+	String styleButtonCancel = buttonCancelStyle.readAll();
+	buttonCancelStyle.close();
+
+    File editStyle("../styles/text_edit.css");
+	editStyle.open(QIODevice::ReadOnly);
+	String styleEdit = editStyle.readAll();
+	editStyle.close();
+
+    File widgetStyle("../styles/widget.css");
+	widgetStyle.open(QIODevice::ReadOnly);
+	String styleWidget = widgetStyle.readAll();
+	widgetStyle.close();
+
     addFile = new Button(centralWidget);
     addFile->setGeometry(185, 5, 40, 40);
-    addFile->setFont(QFont("Arial", 14));
+    addFile->setFont(Font("Arial", 14));
     addFile->setIcon(Icon("../res/tool_bar_icons/add_file.png"));
     addFile->setIconSize(Size(40, 40));
+    addFile->setStyleSheet(styleButton);
 
     window = new Window();
-    window->setFixedSize(400, 200);
+    window->setFixedSize(400, 150);
     window->setWindowModality(Qt::ApplicationModal);
     window->setWindowTitle("Create File");
+    window->setStyleSheet(styleWidget);
 
     title = new LineEdit(window);
-    title->setGeometry(25, 20, 350, 80);
-    title->setFont(QFont("Arial", 14));
+    title->setGeometry(25, 20, 350, 50);
+    title->setFont(Font("Arial", 14));
     title->setPlaceholderText("Enter file name");
     title->setAlignment(Qt::AlignCenter);
+    title->setStyleSheet(styleEdit);
 
-    createFile = new Button("create", window);
-    createFile->setGeometry(205, 110, 170, 80);
-    createFile->setFont(QFont("Arial", 14));
+    createFile = new Button("create file", window);
+    createFile->setGeometry(205, 90, 170, 50);
+    createFile->setFont(Font("Arial", 14));
+    createFile->setStyleSheet(styleButtonOk);
 
     cancel = new Button("cancel", window);
-    cancel->setGeometry(25, 110, 170, 80);
-    cancel->setFont(QFont("Arial", 14));
+    cancel->setGeometry(25, 90, 170, 50);
+    cancel->setFont(Font("Arial", 14));
+    cancel->setStyleSheet(styleButtonCancel);
 
     QObject::connect(cancel, &Button::clicked, this, &AddFile::cancelSlot);   
     QObject::connect(addFile, &Button::clicked, this, &AddFile::addShowFileAddSlot);;

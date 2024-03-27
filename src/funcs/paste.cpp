@@ -2,11 +2,18 @@
 
 Paste::Paste(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
 {
+    File buttonStyle("../styles/button.css");
+	buttonStyle.open(QIODevice::ReadOnly);
+	String style = buttonStyle.readAll();
+	buttonStyle.close();
+
+
     paste = new Button(centralWidget);
     paste->setGeometry(140, 5, 40, 40);
     paste->setFont(Font("Arial", 14));
     paste->setIcon(Icon("../res/tool_bar_icons/copy_to_folder.png"));
     paste->setIconSize(Size(40, 40));
+    paste->setStyleSheet(style);
 
     QObject::connect(paste, &Button::clicked, this, &Paste::clickSlot);
 }

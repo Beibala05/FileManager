@@ -59,5 +59,3 @@ using Icon              = QIcon;
 using Pixmap            = QPixmap;
 using Font              = QFont;
 using Size              = QSize;
-
-#include "../../icons/icons_pack.h"
