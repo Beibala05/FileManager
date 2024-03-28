@@ -1,13 +1,13 @@
 #include "copy.h"
 
-Copy::Copy(Widget *centralWidget, Text *copyText) : m_copyText(copyText)
+Copy::Copy(Widget *parent, Text *copyText) : m_copyText(copyText)
 {
     File buttonStyle("../styles/button.css");
 	buttonStyle.open(QIODevice::ReadOnly);
 	String style = buttonStyle.readAll();
 	buttonStyle.close();
 
-    copy = new Button(centralWidget);
+    copy = new Button(parent);
     copy->setGeometry(95, 5, 40, 40);
     copy->setFont(Font("Arial", 14));
     copy->setIcon(Icon("../res/tool_bar_icons/copy.png"));

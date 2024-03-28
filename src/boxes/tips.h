@@ -9,6 +9,6 @@ struct Tips
     static Widget *window;
     static Label  *text;
 
-    static void show(String textFromButton, int x, int y, int w);
+    static void show(String textFromButton, int x, int y, int w, int _w);
     static void hide();
 };

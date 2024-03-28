@@ -26,9 +26,14 @@ Tips::Tips(Widget *parent)
     window->hide();
 }
 
-void Tips::show(String textFromButton, int x, int y, int w)
+void Tips::show(String textFromButton, int x, int y, int w, int _w)
 {
-    window->setGeometry(x, y + 45, w, 35);
+    int x_axis = x + (_w / 2) - (w / 2);
+
+    if (x_axis < 0)
+        window->setGeometry(x, y + 45, w, 35);
+    else
+        window->setGeometry(x_axis, y + 45, w, 35);
     text->setGeometry(0, 0, w, 35);
     text->setText(textFromButton);
 

@@ -9,7 +9,7 @@
 #include "../funcs/remove.h"
 #include "../funcs/copy.h"
 #include "../funcs/paste.h"
-#include "../funcs/buffer.h"
+#include "../funcs/clipboard.h"
 #include "../boxes/message.h"
 #include "../boxes/tips.h"
 

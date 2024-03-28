@@ -1,6 +1,6 @@
 #include "remove.h"
 
-Remove::Remove(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
+Remove::Remove(Widget *parent, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     File buttonStyle("../styles/button.css");
 	buttonStyle.open(QIODevice::ReadOnly);
@@ -12,20 +12,20 @@ Remove::Remove(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(f
 	String styleLabel = labelStyle.readAll();
 	labelStyle.close();
 
-    removeTitle = new Text(centralWidget);
-    removeTitle->setGeometry(365, 5, 400, 40);
+    removeTitle = new Text(parent);
+    removeTitle->setGeometry(410, 5, UI_MINIMUM_WIDTH - 410, 40);
     removeTitle->setFont(Font("Arial", 14));
     removeTitle->setAlignment(Qt::AlignCenter);
     removeTitle->setStyleSheet(styleLabel);
     removeTitle->setTextForTip("name of the file/folder of the deleted");
 
-    remove = new Button(centralWidget);
-    remove->setGeometry(320, 5, 40, 40);
+    remove = new Button(parent);
+    remove->setGeometry(365, 5, 40, 40);
     remove->setFont(Font("Arial", 14));
     remove->setIcon(Icon("../res/tool_bar_icons/remove_folder.png"));
     remove->setIconSize(Size(40, 40));
     remove->setStyleSheet(styleButton);
-    remove->setTextForTip("remove file/folder");
+    remove->setTextForTip("delete file/folder");
 
     QObject::connect(remove, &Button::clicked, this, &Remove::removeItemSlot);
     QObject::connect(m_fileManager, &ListWidget::itemClicked, this, &Remove::crossTextFromFileManagerSlot);

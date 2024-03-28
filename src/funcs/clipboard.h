@@ -3,18 +3,21 @@
 #include "../includes/include.h"
 #include "../customes/button.h"
 #include "../customes/text.h"
+#include "../boxes/message.h"
 
 struct Button;
 struct Text;
+struct Message;
 
-struct Buffer
+struct Buffer : Object
 {
-    explicit Buffer(Widget *centralWidget);
+    explicit Buffer(Widget *parent);
 
-    static Text    *buffer;
+    Button          *clipboard;
     static String   cpTitle;
     static bool     isCurrentBufferTextFolder;
     
     static void     toBuffer(const String &text);
     static String   fromBuffer();
+    void            showInformationFromClipboardSlot();
 };

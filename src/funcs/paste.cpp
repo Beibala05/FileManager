@@ -1,6 +1,6 @@
 #include "paste.h"
 
-Paste::Paste(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
+Paste::Paste(Widget *parent, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     File buttonStyle("../styles/button.css");
 	buttonStyle.open(QIODevice::ReadOnly);
@@ -8,7 +8,7 @@ Paste::Paste(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fil
 	buttonStyle.close();
 
 
-    paste = new Button(centralWidget);
+    paste = new Button(parent);
     paste->setGeometry(140, 5, 40, 40);
     paste->setFont(Font("Arial", 14));
     paste->setIcon(Icon("../res/tool_bar_icons/copy_to_folder.png"));

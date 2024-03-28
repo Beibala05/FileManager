@@ -10,7 +10,7 @@ void Text::enterEvent(Event *event)
 {
     if (!textForTip.isEmpty())
     {
-        Tips::show(textForTip, this->pos().x(), this->pos().y(), 400);
+        Tips::show(textForTip, this->pos().x(), this->pos().y(), 380, this->width());
     }
     Label::enterEvent(event);
 }

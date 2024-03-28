@@ -9,9 +9,9 @@ struct Manager;
 struct Button;
 struct Text;
 
-struct Transitions : QObject
+struct Transitions : Object
 {
-    Transitions(Widget *centralWidget, ListWidget *fileManager, String &path
+    Transitions(Widget *parent, ListWidget *fileManager, String &path
     , Text *removeText, std::vector<String> &pathes);
 
     Button *next;

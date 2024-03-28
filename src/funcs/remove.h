@@ -9,9 +9,9 @@ struct Manager;
 struct Button;
 struct Text;
 
-struct Remove : QObject
+struct Remove : Object
 {
-    Remove(Widget *centralWidget, ListWidget *fileManager);
+    Remove(Widget *parent, ListWidget *fileManager);
 
     Text          *removeTitle;
     Button        *remove;

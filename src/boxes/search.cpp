@@ -1,6 +1,6 @@
 #include "search.h"
 
-Search::Search(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
+Search::Search(Widget *parent, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     File buttonStyle("../styles/button.css");
 	buttonStyle.open(QIODevice::ReadOnly);
@@ -27,7 +27,7 @@ Search::Search(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(f
 	String styleWidget = widgetStyle.readAll();
 	widgetStyle.close();
 
-    serchButton = new Button(centralWidget);
+    serchButton = new Button(parent);
     serchButton->setGeometry(275, 5, 40, 40);
     serchButton->setFont(Font("Arial", 14));
     serchButton->setIcon(Icon("../res/tool_bar_icons/search.png"));
@@ -129,6 +129,7 @@ void Search::searchLocal()
 
         isSearch = true;
         serchButton->setIcon(Icon("../res/tool_bar_icons/cancel_search.png"));
+        serchButton->setTextForTip("cancel local search");
 
         title->clear();
         window->hide();
@@ -142,6 +143,7 @@ void Search::searchCancel()
     Manager::print(Manager::currentPath, m_fileManager);
     isSearch = false;
     serchButton->setIcon(Icon("../res/tool_bar_icons/search.png"));
+    serchButton->setTextForTip("local search");
 }
 
 void Search::cancelSlot()

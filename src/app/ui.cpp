@@ -46,7 +46,7 @@ UserInterface::~UserInterface()
 void UserInterface::resizeEvent(ResizeEvent* event)
 {
 	manager->fileManager->setGeometry(0, 50, width(), height() - 50);
-    buffer->buffer->setGeometry(770, 5, width() - 775, 40);
+    remover->removeTitle->setGeometry(410, 5, width() - 410, 40);
     
 	Window::resizeEvent(event);
 }

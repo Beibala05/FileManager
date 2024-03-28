@@ -4,16 +4,16 @@
 #include "../customes/button.h"
 #include "../customes/text.h"
 #include "manager.h"
-#include "buffer.h"
+#include "clipboard.h"
 
 struct Manager;
 struct Buffer;
 struct Button;
 struct Text;
 
-struct Copy : QObject
+struct Copy : Object
 {
-    Copy(Widget* centralWidget, Text *copyText);
+    Copy(Widget* parent, Text *copyText);
 
     Button *copy;
     Text   *m_copyText;

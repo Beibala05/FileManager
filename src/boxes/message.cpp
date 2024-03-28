@@ -31,11 +31,11 @@ Message::Message()
     icon->setGeometry(10, 20, 0, 0);
 
     text = new Text(window);
-    text->setGeometry(115, 5, 350, 50);
+    text->setGeometry(125, 5, 350, 50);
     text->setFont(Font("Arial", 13));
 
     ok = new Button("OK", window);
-    ok->setGeometry(MESSAGE_START_WIDTH - 95, MESSAGE_START_HEIGHT - 45, 80, 40);
+    ok->setGeometry(MESSAGE_START_WIDTH - 85, MESSAGE_START_HEIGHT - 45, 80, 40);
     ok->setFont(Font("Arial", 14));
     ok->setStyleSheet(styleButtonOk);
 
@@ -47,10 +47,10 @@ Message::~Message()
     delete window;
 }
 
-void Message::information(const String &__message)
+void Message::information(const String &__message, const String &windowTitle)
 {
     Pixmap pixmap("../res/message_icons/information.png");
-    window->setWindowTitle("Information");    
+    window->setWindowTitle(windowTitle);    
     icon->setPixmap(pixmap);
     icon->resize(pixmap.size());
     text->setText(Message::parse(__message));
@@ -58,10 +58,10 @@ void Message::information(const String &__message)
     window->show();
 }
 
-void Message::warning(const String &__message)
+void Message::warning(const String &__message, const String &windowTitle)
 {
     Pixmap pixmap("../res/message_icons/warning.png");
-    window->setWindowTitle("Warning");    
+    window->setWindowTitle(windowTitle);    
     icon->setPixmap(pixmap);
     icon->resize(pixmap.size());
     text->setText(Message::parse(__message));
@@ -69,10 +69,10 @@ void Message::warning(const String &__message)
     window->show();
 }
 
-void Message::error(const String &__message)
+void Message::error(const String &__message, const String &windowTitle)
 {
     Pixmap pixmap("../res/message_icons/error.png");
-    window->setWindowTitle("Error");    
+    window->setWindowTitle(windowTitle);    
     icon->setPixmap(pixmap);
     icon->resize(pixmap.size());
     text->setText(Message::parse(__message));
@@ -91,11 +91,11 @@ String Message::parse(const String &__message)
     int iter = 1;
     int _size = 5;
 
-    int size = res.size() / 33;
+    int size = res.size() / 36;
 
     for (int i = 0; i < size; ++i)
     {
-        res.insert(33 * iter, "\n");
+        res.insert(36 * iter, "\n");
         ++iter;
 
         if (iter > 3)

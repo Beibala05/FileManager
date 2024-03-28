@@ -4,16 +4,16 @@
 #include "../boxes/message.h"
 #include "../customes/button.h"
 #include "manager.h"
-#include "buffer.h"
+#include "clipboard.h"
 
 struct Manager;
 struct Buffer;
 struct Message;
 struct Button;
 
-struct Paste : QObject
+struct Paste : Object
 {
-    Paste(Widget* centralWidget, ListWidget *fileManager);
+    Paste(Widget* parent, ListWidget *fileManager);
 
     Button      *paste;
     ListWidget  *m_fileManager;

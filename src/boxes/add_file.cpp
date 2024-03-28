@@ -1,6 +1,6 @@
 #include "add_file.h"
 
-AddFile::AddFile(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
+AddFile::AddFile(Widget *parent, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     File buttonStyle("../styles/button.css");
 	buttonStyle.open(QIODevice::ReadOnly);
@@ -27,7 +27,7 @@ AddFile::AddFile(Widget *centralWidget, ListWidget *fileManager) : m_fileManager
 	String styleWidget = widgetStyle.readAll();
 	widgetStyle.close();
 
-    addFile = new Button(centralWidget);
+    addFile = new Button(parent);
     addFile->setGeometry(185, 5, 40, 40);
     addFile->setFont(Font("Arial", 14));
     addFile->setIcon(Icon("../res/tool_bar_icons/add_file.png"));

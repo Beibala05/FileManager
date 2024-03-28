@@ -15,7 +15,7 @@ SOURCES += \
     src/funcs/remove.cpp \
     src/funcs/copy.cpp \
     src/funcs/paste.cpp \
-    src/funcs/buffer.cpp \
+    src/funcs/clipboard.cpp \
     src/customes/button.cpp \
     src/customes/text.cpp \
 
@@ -32,7 +32,7 @@ HEADERS += \
     src/funcs/remove.h \
     src/funcs/copy.h \
     src/funcs/paste.h \
-    src/funcs/buffer.h \
+    src/funcs/clipboard.h \
     src/customes/button.h \
     src/customes/text.h \
 

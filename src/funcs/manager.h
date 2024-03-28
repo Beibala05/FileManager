@@ -9,7 +9,7 @@ struct Button;
 
 struct Manager
 {
-    explicit Manager(Widget *centralWidget);
+    explicit Manager(Widget *parent);
     ~Manager();
 
     ListWidget	                   *fileManager;

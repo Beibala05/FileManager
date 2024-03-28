@@ -1,6 +1,6 @@
 #include "transitions.h"
 
-Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String &path
+Transitions::Transitions(Widget *parent, ListWidget *fileManager, String &path
     , Text *removeText, std::vector<String> &pathes) : m_fileManager(fileManager)
     , m_path(path)
     , m_pathes(pathes)
@@ -11,7 +11,7 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
 	String style = buttonStyle.readAll();
 	buttonStyle.close();
 
-    next = new Button(centralWidget);
+    next = new Button(parent);
 	next->setGeometry(50, 5, 40, 40);
 	next->setFont(Font("Arial", 14));
 	next->setIcon(Icon("../res/tool_bar_icons/next_dir.png"));
@@ -19,7 +19,7 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
 	next->setStyleSheet(style);
 	next->setTextForTip("next directory");
 
-	prev = new Button(centralWidget);
+	prev = new Button(parent);
 	prev->setGeometry(5, 5, 40, 40);
 	prev->setFont(Font("Arial", 14));
 	prev->setIcon(Icon("../res/tool_bar_icons/prev_dir.png"));

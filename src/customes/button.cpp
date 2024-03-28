@@ -19,7 +19,7 @@ void Button::enterEvent(Event *event)
 {
     if (!textForTip.isEmpty())
     {
-        Tips::show(textForTip, this->pos().x(), this->pos().y(), textForTip.size() * 12);
+        Tips::show(textForTip, this->pos().x(), this->pos().y(), textForTip.size() * 12, this->width());
     }
     PushButton::enterEvent(event);
 }

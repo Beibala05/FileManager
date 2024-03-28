@@ -8,9 +8,9 @@
 struct Manager;
 struct Button;
 
-struct Search : QObject
+struct Search : Object
 {
-    Search(Widget *centralWidget, ListWidget *fileManager);
+    Search(Widget *parent, ListWidget *fileManager);
     ~Search();
 
     Widget      *window;

@@ -2,14 +2,14 @@
 
 String	Manager::currentPath;
 
-Manager::Manager(Widget *centralWidget)
+Manager::Manager(Widget *parent)
 {
 	File buttonStyle("../styles/manager.css");
 	buttonStyle.open(QIODevice::ReadOnly);
 	String style = buttonStyle.readAll();
 	buttonStyle.close();
 
-    fileManager = new ListWidget(centralWidget);
+    fileManager = new ListWidget(parent);
 	fileManager->setGeometry(0, 50, 1200, 750);
 	fileManager->setFont(Font("Arial", 16));
 	fileManager->setStyleSheet(style);

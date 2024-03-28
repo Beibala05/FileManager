@@ -30,9 +30,9 @@
 #include <vector>
 #include <cstdlib>
 
-#define UI_MINIMUM_WIDTH            1400
+#define UI_MINIMUM_WIDTH            1210
 #define UI_MINIMUM_HEIGHT           800
-#define MESSAGE_START_WIDTH         410
+#define MESSAGE_START_WIDTH         480
 #define MESSAGE_START_HEIGHT        150
 
 using App               = QApplication;
@@ -55,3 +55,4 @@ using Pixmap            = QPixmap;
 using Font              = QFont;
 using Size              = QSize;
 using Event             = QEvent;
+using Object            = QObject;

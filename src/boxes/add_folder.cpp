@@ -1,6 +1,6 @@
 #include "add_folder.h"
 
-AddFolder::AddFolder(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(fileManager)
+AddFolder::AddFolder(Widget *parent, ListWidget *fileManager) : m_fileManager(fileManager)
 {
     File buttonStyle("../styles/button.css");
 	buttonStyle.open(QIODevice::ReadOnly);
@@ -27,7 +27,7 @@ AddFolder::AddFolder(Widget *centralWidget, ListWidget *fileManager) : m_fileMan
 	String styleWidget = widgetStyle.readAll();
 	widgetStyle.close();
 
-    addFolder = new Button(centralWidget);
+    addFolder = new Button(parent);
     addFolder->setGeometry(230, 5, 40, 40);
     addFolder->setFont(Font("Arial", 14));
     addFolder->setIcon(Icon("../res/tool_bar_icons/add_folder.png"));

@@ -7,9 +7,9 @@
 struct Manager;
 struct Button;
 
-struct AddFolder : QObject
+struct AddFolder : Object
 {
-    AddFolder(Widget *centralWidget, ListWidget *fileManager);
+    AddFolder(Widget *parent, ListWidget *fileManager);
     ~AddFolder();
 
     Widget      *window;
