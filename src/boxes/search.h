@@ -17,8 +17,11 @@ struct Search : QObject
     Button      *cancel;
     Button      *serchButton;
     ListWidget  *m_fileManager;
+    bool         isSearch = false;
 
     void showSlot();
-    void searchSlot();
+    void searchButtonSlot();
+    void searchLocal();
+    void searchCancel();
     void cancelSlot();
 };

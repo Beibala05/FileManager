@@ -58,7 +58,7 @@ Search::Search(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(f
     cancel->setStyleSheet(styleButtonCancel);
 
 	QObject::connect(serchButton, &Button::clicked, this, &Search::showSlot);
-	QObject::connect(search, &Button::clicked, this, &Search::searchSlot);
+	QObject::connect(search, &Button::clicked, this, &Search::searchButtonSlot);
 	QObject::connect(cancel, &Button::clicked, this, &Search::cancelSlot);
 }
 
@@ -69,11 +69,26 @@ Search::~Search()
 
 void Search::showSlot()
 {
-	window->show();
+    if (!isSearch)
+	    window->show();
+    else
+        searchCancel();
 }
 
-void Search::searchSlot()
+void Search::searchButtonSlot()
 {
+    searchLocal();
+}
+
+void Search::searchLocal()
+{
+    if (title->text().isEmpty())
+    {
+        Message::warning("empty title");
+
+        return;
+    }
+
     bool isFind = false;
     String searchTitle = title->text().toLower();
 
@@ -111,11 +126,21 @@ void Search::searchSlot()
             }
         }
 
+        isSearch = true;
+        serchButton->setIcon(Icon("../res/tool_bar_icons/cancel_search.png"));
+
         title->clear();
         window->hide();
     }
     else
         Message::warning("Could not find a file or folder with that name");
+}
+
+void Search::searchCancel()
+{
+    Manager::print(Manager::currentPath, m_fileManager);
+    isSearch = false;
+    serchButton->setIcon(Icon("../res/tool_bar_icons/search.png"));
 }
 
 void Search::cancelSlot()

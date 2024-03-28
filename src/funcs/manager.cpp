@@ -62,6 +62,29 @@ void Manager::print(String &path, ListWidget *fileManager, std::vector<String> &
 	}
 }
 
+void Manager::print(const String &dirPath, ListWidget *fileManager)
+{
+	Manager::removeAllFromFileManager(fileManager);
+
+	Dir directory(dirPath);
+	FileInfoList files = directory.entryInfoList(Dir::Files | Dir::Dirs | Dir::NoDotAndDotDot, Dir::Name);
+
+	for (const auto &file : files)
+	{
+		String file_name = file.fileName();
+
+		if (file.isDir())
+		{	
+			fileManager->addItem(new ListWidgetItem(Icon("../res/files_and_folders_icons/folder.png"), file_name));
+		}
+		else if (file.isFile())
+		{
+			String icon = Manager::fileFormat(Manager::currentPath + (String)"/" + file_name);
+			fileManager->addItem(new ListWidgetItem(Icon(icon), file_name));
+		}
+	}
+}
+
 void Manager::removeAllFromFileManager(ListWidget *fileManager)
 {
 	for (int i = 0; i < fileManager->count(); ++i) 
