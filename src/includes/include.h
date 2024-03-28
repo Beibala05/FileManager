@@ -8,9 +8,6 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QLabel>
-#include <QMouseEvent>
-#include <QEvent>
-#include <QTextBrowser>
 #include <QDebug>
 #include <QString>
 #include <QFileInfo>
@@ -27,6 +24,7 @@
 #include <QPixmap>
 #include <QSize>
 #include <QFont>
+#include <QEvent>
 
 #include <iostream>
 #include <vector>
@@ -34,8 +32,6 @@
 
 #define UI_MINIMUM_WIDTH            1400
 #define UI_MINIMUM_HEIGHT           800
-#define TEXT_EDITOR_START_WIDTH     1200
-#define TEXT_EDITOR_START_HEIGHT    800
 #define MESSAGE_START_WIDTH         410
 #define MESSAGE_START_HEIGHT        150
 
@@ -49,13 +45,13 @@ using FileInfoList      = QFileInfoList;
 using File              = QFile;
 using ListWidgetItem    = QListWidgetItem;
 using Widget            = QWidget;
-using Button            = QPushButton;
-using Text              = QLabel;
+using PushButton        = QPushButton;
+using Label             = QLabel;
 using TextEdit          = QTextEdit;
-using TextBrowser       = QTextBrowser;
 using String            = QString;
 using ResizeEvent       = QResizeEvent;
 using Icon              = QIcon;
 using Pixmap            = QPixmap;
 using Font              = QFont;
 using Size              = QSize;
+using Event             = QEvent;

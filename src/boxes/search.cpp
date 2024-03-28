@@ -33,6 +33,7 @@ Search::Search(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(f
     serchButton->setIcon(Icon("../res/tool_bar_icons/search.png"));
     serchButton->setIconSize(Size(40, 40));
     serchButton->setStyleSheet(styleButton);
+    serchButton->setTextForTip("local search");
 
     window = new Window();
     window->setFixedSize(400, 150);

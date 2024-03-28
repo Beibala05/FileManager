@@ -2,9 +2,11 @@
 
 #include "../includes/include.h"
 #include "../funcs/manager.h"
-#include "message.h"
+#include "message.h" 
+#include "../customes/button.h"
 
 struct Manager;
+struct Button;
 
 struct Search : QObject
 {

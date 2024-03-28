@@ -2,8 +2,10 @@
 
 #include "../includes/include.h"
 #include "../funcs/manager.h"
+#include "../customes/button.h"
 
 struct Manager;
+struct Button;
 
 struct AddFile : QObject
 {

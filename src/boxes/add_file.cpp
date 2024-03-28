@@ -33,6 +33,7 @@ AddFile::AddFile(Widget *centralWidget, ListWidget *fileManager) : m_fileManager
     addFile->setIcon(Icon("../res/tool_bar_icons/add_file.png"));
     addFile->setIconSize(Size(40, 40));
     addFile->setStyleSheet(styleButton);
+    addFile->setTextForTip("add file");
 
     window = new Window();
     window->setFixedSize(400, 150);

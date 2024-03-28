@@ -2,8 +2,10 @@
 
 #include "../app/ui.h"
 #include "../funcs/remove.h"
+#include "../customes/button.h"
 
 struct Remove;
+struct Button;
 
 struct Manager
 {

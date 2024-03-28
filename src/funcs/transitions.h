@@ -1,9 +1,13 @@
 #pragma once
 
 #include "../app/ui.h"
+#include "../customes/button.h"
+#include "../customes/text.h"
 #include "manager.h"
 
 struct Manager;
+struct Button;
+struct Text;
 
 struct Transitions : QObject
 {

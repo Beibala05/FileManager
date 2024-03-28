@@ -13,9 +13,10 @@ Buffer::Buffer(Widget *centralWidget)
 
     buffer = new Text(centralWidget);
     buffer->setGeometry(770, 5, UI_MINIMUM_WIDTH - 775, 40);
-    buffer->setFont(QFont("Arial", 14));
+    buffer->setFont(Font("Arial", 14));
     buffer->setAlignment(Qt::AlignCenter);
     buffer->setStyleSheet(styleBuffer);
+    buffer->setTextForTip("current text from the clipboard");
 
     String bufferText = Buffer::fromBuffer();
 

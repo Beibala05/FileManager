@@ -1,9 +1,13 @@
 #pragma once
 
 #include "../includes/include.h"
+#include "../customes/button.h"
+#include "../customes/text.h"
 #include "manager.h"
 
 struct Manager;
+struct Button;
+struct Text;
 
 struct Remove : QObject
 {

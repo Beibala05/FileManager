@@ -13,6 +13,7 @@ Copy::Copy(Widget *centralWidget, Text *copyText) : m_copyText(copyText)
     copy->setIcon(Icon("../res/tool_bar_icons/copy.png"));
     copy->setIconSize(Size(40, 40));
     copy->setStyleSheet(style);
+    copy->setTextForTip("copy file/folder");
 
     QObject::connect(copy, &Button::clicked, this, &Copy::clickSlot);
 }

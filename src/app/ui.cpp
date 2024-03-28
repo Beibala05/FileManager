@@ -25,6 +25,7 @@ UserInterface::UserInterface(Widget *parent) : Window(parent)
     , manager->pathes);
     buffer = new Buffer(centralWidget);
     msgs = new Message();
+    tips = new Tips(centralWidget);
 }
 
 UserInterface::~UserInterface()
@@ -39,6 +40,7 @@ UserInterface::~UserInterface()
     delete paste;
     delete buffer;
     delete msgs;
+    delete tips ;
 }
 
 void UserInterface::resizeEvent(ResizeEvent* event)

@@ -1,6 +1,11 @@
 #pragma once
 
 #include "../includes/include.h"
+#include "../customes/button.h"
+#include "../customes/text.h"
+
+struct Button;
+struct Text;
 
 struct Message : QObject
 {

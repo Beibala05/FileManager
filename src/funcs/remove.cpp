@@ -17,6 +17,7 @@ Remove::Remove(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(f
     removeTitle->setFont(Font("Arial", 14));
     removeTitle->setAlignment(Qt::AlignCenter);
     removeTitle->setStyleSheet(styleLabel);
+    removeTitle->setTextForTip("name of the file/folder of the deleted");
 
     remove = new Button(centralWidget);
     remove->setGeometry(320, 5, 40, 40);
@@ -24,6 +25,7 @@ Remove::Remove(Widget *centralWidget, ListWidget *fileManager) : m_fileManager(f
     remove->setIcon(Icon("../res/tool_bar_icons/remove_folder.png"));
     remove->setIconSize(Size(40, 40));
     remove->setStyleSheet(styleButton);
+    remove->setTextForTip("remove file/folder");
 
     QObject::connect(remove, &Button::clicked, this, &Remove::removeItemSlot);
     QObject::connect(m_fileManager, &ListWidget::itemClicked, this, &Remove::crossTextFromFileManagerSlot);

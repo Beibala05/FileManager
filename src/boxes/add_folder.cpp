@@ -33,6 +33,7 @@ AddFolder::AddFolder(Widget *centralWidget, ListWidget *fileManager) : m_fileMan
     addFolder->setIcon(Icon("../res/tool_bar_icons/add_folder.png"));
     addFolder->setIconSize(Size(40, 40));
     addFolder->setStyleSheet(styleButton);
+    addFolder->setTextForTip("add folder");
 
     window = new Window();
     window->setFixedSize(400, 150);

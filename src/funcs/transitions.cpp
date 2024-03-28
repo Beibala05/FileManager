@@ -17,6 +17,7 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
 	next->setIcon(Icon("../res/tool_bar_icons/next_dir.png"));
     next->setIconSize(Size(40, 40));
 	next->setStyleSheet(style);
+	next->setTextForTip("next directory");
 
 	prev = new Button(centralWidget);
 	prev->setGeometry(5, 5, 40, 40);
@@ -24,6 +25,7 @@ Transitions::Transitions(Widget *centralWidget, ListWidget *fileManager, String 
 	prev->setIcon(Icon("../res/tool_bar_icons/prev_dir.png"));
     prev->setIconSize(Size(40, 40));
 	prev->setStyleSheet(style);
+	prev->setTextForTip("previous directory");
 
     QObject::connect(next, &Button::clicked, this, &Transitions::nextElementSlot);
 	QObject::connect(prev, &Button::clicked, this, &Transitions::prevElementSlot);

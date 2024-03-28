@@ -11,6 +11,7 @@
 #include "../funcs/paste.h"
 #include "../funcs/buffer.h"
 #include "../boxes/message.h"
+#include "../boxes/tips.h"
 
 struct Manager;
 struct Transitions;
@@ -22,6 +23,7 @@ struct Copy;
 struct Paste;
 struct Buffer;
 struct Message;
+struct Tips;
 
 struct UserInterface : Window
 {
@@ -39,6 +41,7 @@ struct UserInterface : Window
 	Paste		*paste;
 	Buffer		*buffer;
 	Message		*msgs;
+	Tips		*tips;
 
 protected:
 	void resizeEvent(ResizeEvent* event) override;
