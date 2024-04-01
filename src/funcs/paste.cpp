@@ -11,7 +11,7 @@ Paste::Paste(Widget *parent, ListWidget *fileManager) : m_fileManager(fileManage
     paste = new Button(parent);
     paste->setGeometry(140, 5, 40, 40);
     paste->setFont(Font("Arial", 14));
-    paste->setIcon(Icon("../res/tool_bar_icons/copy_to_folder.png"));
+    paste->setIcon(Icon(":/icons/tool_bar_icons/copy_to_folder.png"));
     paste->setIconSize(Size(40, 40));
     paste->setStyleSheet(style);
     paste->setTextForTip("paste file to folder");

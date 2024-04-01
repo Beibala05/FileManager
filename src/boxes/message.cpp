@@ -49,7 +49,7 @@ Message::~Message()
 
 void Message::information(const String &__message, const String &windowTitle)
 {
-    Pixmap pixmap("../res/message_icons/information.png");
+    Pixmap pixmap(":/icons/message_icons/information.png");
     window->setWindowTitle(windowTitle);    
     icon->setPixmap(pixmap);
     icon->resize(pixmap.size());
@@ -60,7 +60,7 @@ void Message::information(const String &__message, const String &windowTitle)
 
 void Message::warning(const String &__message, const String &windowTitle)
 {
-    Pixmap pixmap("../res/message_icons/warning.png");
+    Pixmap pixmap(":/icons/message_icons/warning.png");
     window->setWindowTitle(windowTitle);    
     icon->setPixmap(pixmap);
     icon->resize(pixmap.size());
@@ -71,7 +71,7 @@ void Message::warning(const String &__message, const String &windowTitle)
 
 void Message::error(const String &__message, const String &windowTitle)
 {
-    Pixmap pixmap("../res/message_icons/error.png");
+    Pixmap pixmap(":/icons/message_icons/error.png");
     window->setWindowTitle(windowTitle);    
     icon->setPixmap(pixmap);
     icon->resize(pixmap.size());

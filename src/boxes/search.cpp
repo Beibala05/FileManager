@@ -30,7 +30,7 @@ Search::Search(Widget *parent, ListWidget *fileManager) : m_fileManager(fileMana
     serchButton = new Button(parent);
     serchButton->setGeometry(275, 5, 40, 40);
     serchButton->setFont(Font("Arial", 14));
-    serchButton->setIcon(Icon("../res/tool_bar_icons/search.png"));
+    serchButton->setIcon(Icon(":/icons/tool_bar_icons/search.png"));
     serchButton->setIconSize(Size(40, 40));
     serchButton->setStyleSheet(styleButton);
     serchButton->setTextForTip("local search");
@@ -123,16 +123,16 @@ void Search::searchLocal()
             }
             else
             {
-                m_fileManager->addItem(new ListWidgetItem(Icon("../res/files_and_folders_icons/folder.png"), findFilesTitles[i]));
+                m_fileManager->addItem(new ListWidgetItem(Icon(":/icons/files_and_folders_icons/folder.png"), findFilesTitles[i]));
             }
         }
 
         isSearch = true;
-        serchButton->setIcon(Icon("../res/tool_bar_icons/cancel_search.png"));
+        serchButton->setIcon(Icon(":/icons/tool_bar_icons/cancel_search.png"));
         serchButton->setTextForTip("cancel local search");
 
         title->clear();
-        window->hide();
+        window->hide(); 
     }
     else
         Message::warning("Could not find a file or folder with that name");
@@ -142,7 +142,7 @@ void Search::searchCancel()
 {
     Manager::print(Manager::currentPath, m_fileManager);
     isSearch = false;
-    serchButton->setIcon(Icon("../res/tool_bar_icons/search.png"));
+    serchButton->setIcon(Icon(":/icons/tool_bar_icons/search.png"));
     serchButton->setTextForTip("local search");
 }
 

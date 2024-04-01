@@ -48,4 +48,7 @@ DISTFILES += \
     styles/button_cancel.css \
 
 RESOURCES += \
-    \
+    res/icons.qrc \
+
+RC_ICONS += \
+    res/logo.ico \

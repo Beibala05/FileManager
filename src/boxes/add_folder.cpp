@@ -30,7 +30,7 @@ AddFolder::AddFolder(Widget *parent, ListWidget *fileManager) : m_fileManager(fi
     addFolder = new Button(parent);
     addFolder->setGeometry(230, 5, 40, 40);
     addFolder->setFont(Font("Arial", 14));
-    addFolder->setIcon(Icon("../res/tool_bar_icons/add_folder.png"));
+    addFolder->setIcon(Icon(":/icons/tool_bar_icons/add_folder.png"));
     addFolder->setIconSize(Size(40, 40));
     addFolder->setStyleSheet(styleButton);
     addFolder->setTextForTip("add folder");

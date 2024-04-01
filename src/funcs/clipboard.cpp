@@ -13,7 +13,7 @@ Buffer::Buffer(Widget *parent)
     clipboard = new Button(parent);
     clipboard->setGeometry(320, 5, 40, 40);
 	clipboard->setFont(Font("Arial", 14));
-    clipboard->setIcon(Icon("../res/tool_bar_icons/clipboard.png"));
+    clipboard->setIcon(Icon(":/icons/tool_bar_icons/clipboard.png"));
     clipboard->setIconSize(Size(40, 40));
     clipboard->setStyleSheet(styleButton);
     clipboard->setTextForTip("get a clipboard information");

@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>files_and_folders_icons/archive.png</file>
+        <file>files_and_folders_icons/cloud_file.png</file>
+        <file>files_and_folders_icons/code_file.png</file>
+        <file>files_and_folders_icons/dll.png</file>
+        <file>files_and_folders_icons/document.png</file>
+        <file>files_and_folders_icons/fb2.png</file>
+        <file>files_and_folders_icons/folder.png</file>
+        <file>files_and_folders_icons/hdr_photo.png</file>
+        <file>files_and_folders_icons/image_file.png</file>
+        <file>files_and_folders_icons/new_item.png</file>
+        <file>files_and_folders_icons/pdf.png</file>
+        <file>files_and_folders_icons/policy_document.png</file>
+        <file>files_and_folders_icons/sound_file.png</file>
+        <file>files_and_folders_icons/unknown_file.png</file>
+        <file>files_and_folders_icons/vcf.png</file>
+        <file>files_and_folders_icons/video_file.png</file>
+        <file>files_and_folders_icons/xls.png</file>
+        <file>files_and_folders_icons/zip.png</file>
+        <file>message_icons/error.png</file>
+        <file>message_icons/information.png</file>
+        <file>message_icons/warning.png</file>
+        <file>tool_bar_icons/add_file.png</file>
+        <file>tool_bar_icons/add_folder.png</file>
+        <file>tool_bar_icons/cancel_search.png</file>
+        <file>tool_bar_icons/clipboard.png</file>
+        <file>tool_bar_icons/copy_to_file.png</file>
+        <file>tool_bar_icons/copy_to_folder.png</file>
+        <file>tool_bar_icons/copy.png</file>
+        <file>tool_bar_icons/next_dir.png</file>
+        <file>tool_bar_icons/prev_dir.png</file>
+        <file>tool_bar_icons/remove_file.png</file>
+        <file>tool_bar_icons/remove_folder.png</file>
+        <file>tool_bar_icons/search.png</file>
+    </qresource>
+</RCC>

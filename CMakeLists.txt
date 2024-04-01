@@ -42,7 +42,11 @@ set(HEADERS
     src/customes/text.h
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+qt5_add_resources(RESOURCES res/icons.qrc)
+
+set(ICON_SOURCES res/logo.ico)
+
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCES} ${ICON_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets)
 

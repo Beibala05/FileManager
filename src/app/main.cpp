@@ -2,6 +2,10 @@
 #include "../boxes/message.h"
 #include "ui.h"
 
+#ifndef __linux__
+    #error "Only linux"
+#else
+
 int main(int argc, char **argv)
 {
     App app(argc, argv);
@@ -11,3 +15,5 @@ int main(int argc, char **argv)
 
     app.exec();
 }
+
+#endif

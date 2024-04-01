@@ -22,7 +22,7 @@ Remove::Remove(Widget *parent, ListWidget *fileManager) : m_fileManager(fileMana
     remove = new Button(parent);
     remove->setGeometry(365, 5, 40, 40);
     remove->setFont(Font("Arial", 14));
-    remove->setIcon(Icon("../res/tool_bar_icons/remove_folder.png"));
+    remove->setIcon(Icon(":/icons/tool_bar_icons/remove_folder.png"));
     remove->setIconSize(Size(40, 40));
     remove->setStyleSheet(styleButton);
     remove->setTextForTip("delete file/folder");
@@ -44,9 +44,9 @@ void Remove::crossTextFromFileManagerSlot()
         FileInfo fileInfo(Manager::currentPath + (String)"/" + selectedItemText);
 
         if (fileInfo.isFile())
-            remove->setIcon(Icon("../res/tool_bar_icons/remove_file.png"));
+            remove->setIcon(Icon(":/icons/tool_bar_icons/remove_file.png"));
         else
-            remove->setIcon(Icon("../res/tool_bar_icons/remove_folder.png"));
+            remove->setIcon(Icon(":/icons/tool_bar_icons/remove_folder.png"));
 	}
 }
 

@@ -30,7 +30,7 @@ AddFile::AddFile(Widget *parent, ListWidget *fileManager) : m_fileManager(fileMa
     addFile = new Button(parent);
     addFile->setGeometry(185, 5, 40, 40);
     addFile->setFont(Font("Arial", 14));
-    addFile->setIcon(Icon("../res/tool_bar_icons/add_file.png"));
+    addFile->setIcon(Icon(":/icons/tool_bar_icons/add_file.png"));
     addFile->setIconSize(Size(40, 40));
     addFile->setStyleSheet(styleButton);
     addFile->setTextForTip("add file");

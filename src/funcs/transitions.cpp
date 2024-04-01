@@ -14,7 +14,7 @@ Transitions::Transitions(Widget *parent, ListWidget *fileManager, String &path
     next = new Button(parent);
 	next->setGeometry(50, 5, 40, 40);
 	next->setFont(Font("Arial", 14));
-	next->setIcon(Icon("../res/tool_bar_icons/next_dir.png"));
+	next->setIcon(Icon(":/icons/tool_bar_icons/next_dir.png"));
     next->setIconSize(Size(40, 40));
 	next->setStyleSheet(style);
 	next->setTextForTip("next directory");
@@ -22,7 +22,7 @@ Transitions::Transitions(Widget *parent, ListWidget *fileManager, String &path
 	prev = new Button(parent);
 	prev->setGeometry(5, 5, 40, 40);
 	prev->setFont(Font("Arial", 14));
-	prev->setIcon(Icon("../res/tool_bar_icons/prev_dir.png"));
+	prev->setIcon(Icon(":/icons/tool_bar_icons/prev_dir.png"));
     prev->setIconSize(Size(40, 40));
 	prev->setStyleSheet(style);
 	prev->setTextForTip("previous directory");

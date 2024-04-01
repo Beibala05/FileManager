@@ -10,7 +10,7 @@ Copy::Copy(Widget *parent, Text *copyText) : m_copyText(copyText)
     copy = new Button(parent);
     copy->setGeometry(95, 5, 40, 40);
     copy->setFont(Font("Arial", 14));
-    copy->setIcon(Icon("../res/tool_bar_icons/copy.png"));
+    copy->setIcon(Icon(":/icons/tool_bar_icons/copy.png"));
     copy->setIconSize(Size(40, 40));
     copy->setStyleSheet(style);
     copy->setTextForTip("copy file/folder");
